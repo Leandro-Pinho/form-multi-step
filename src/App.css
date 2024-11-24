@@ -1,0 +1,24 @@
+.main {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+
+  place-items: center;
+}
+
+.main aside {
+  background-color: aqua;
+}
+
+.main section {
+  background-color: blanchedalmond;
+}
+
+.attribution {
+  font-size: 11px;
+  position: fixed;
+  bottom: 10px;
+  /* text-align: center; */
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}

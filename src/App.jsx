@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Step, StepLabel, Stepper } from "@material-ui/core";
 
-function App() {
-  const [count, setCount] = useState(0)
+import "./App.css";
+import FirstStep from "./components/screens/FirstStep";
+import SecondStep from "./components/screens/SecondStep";
+import ThirdStep from "./components/screens/ThirdStep";
+import FifthStep from "./components/screens/FifthStep";
+import FourthStep from "./components/screens/FourthStep";
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+function getStepContent(step) {
+  switch (step) {
+    case 1:
+      return <FirstStep />;
+    case 2:
+      return <SecondStep />;
+    case 3:
+      return <ThirdStep />;
+    case 4:
+      return <FourthStep />;
+    case 5:
+      return <FifthStep />;
+  }
 }
 
-export default App
+function App() {
+  return (
+    <>
+      <div className="main">
+        <Stepper activeStep={3} orientation="vertical">
+          <Step>
+            <StepLabel>
+              Step 1 <br />
+              Your info
+            </StepLabel>
+          </Step>
+          <Step>
+            <StepLabel>
+              Step 2 <br />
+              Select plan
+            </StepLabel>
+          </Step>
+          <Step>
+            <StepLabel>
+              Step 3 <br />
+              Add-ons
+            </StepLabel>
+          </Step>
+          <Step>
+            <StepLabel>
+              Step 4 <br />
+              Summary
+            </StepLabel>
+          </Step>
+        </Stepper>
+        {getStepContent(2)}
+
+        {/* <aside>menu</aside>
+        <section>form</section> */}
+      </div>
+    </>
+  );
+}
+
+export default App;
